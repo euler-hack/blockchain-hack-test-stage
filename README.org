@@ -1,0 +1,37 @@
+#+TITLE: Blockchain hack test stage
+
+** Install CakeML
+
+#+BEGIN_SRC sh
+cd ~
+wget https://github.com/CakeML/cakeml/releases/download/v1370/cake-x64-64.tar.gz
+tar -xvzf cake-x64-64.tar.gz && cd cake-x64-64
+make
+#+END_SRC
+
+** Clone repo
+
+#+BEGIN_SRC sh
+cd ~
+git clone https://github.com/euler-hack/blockchain-hack-test-stage.git
+#+END_SRC
+
+Or pull changes
+
+#+BEGIN_SRC sh
+cd ~/blockchain-hack-test-stage
+git pull
+#+END_SRC
+
+** Build contract
+
+#+BEGIN_SRC sh
+cd ~/blockchain-hack-test-stage/stage1
+make CAKE_DIR=~/cake-x64-64
+#+END_SRC
+
+** Run contract
+
+#+BEGIN_SRC sh
+~/blockchain-hack-test-stage/stage1/contract
+#+END_SRC
