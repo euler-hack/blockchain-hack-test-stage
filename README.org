@@ -1,4 +1,5 @@
 #+TITLE: Blockchain hack test stage
+#+PROPERTY: header-args :session *shell cakeml* :results silent raw
 
 ** Install CakeML
 
@@ -12,8 +13,7 @@ make
 ** Clone repo
 
 #+BEGIN_SRC sh
-cd ~
-git clone https://github.com/euler-hack/blockchain-hack-test-stage.git
+git clone https://github.com/euler-hack/blockchain-hack-test-stage.git ~/blockchain-hack-test-stage
 #+END_SRC
 
 Or pull changes
