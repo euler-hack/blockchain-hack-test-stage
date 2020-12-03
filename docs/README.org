@@ -30,28 +30,28 @@
 
 ** Types
 
-| Negotiation         |
-|---------------------|
+*** Negotiation
+
 | NotSet              |
 | WaitingCustomer     |
 | WaitingSupplier     |
 | NegotiationRejected |
 | NegotiationApproved |
 
-| PaymentStatus     |
-|-------------------|
+*** PaymentStatus
+
 | WaitingForPayment |
 | PaymentCompleted  |
 | PaymentRejected   |
 
-| Phase          |
-|----------------|
+*** Phase
+
 | PhaseAgreement |
 | PhaseTasks     |
 | PhaseDeclined  |
 
-| TaskStatus         |
-|--------------------|
+*** TaskStatus
+
 | TaskNotAccepted    |
 | TaskAccepted       |
 | TaskReadyToPerform |
@@ -60,8 +60,8 @@
 | Confirmed          |
 | TaskCompleted      |
 
-| PaymentType |
-|-------------|
+*** PaymentType
+
 | Pre         |
 | Post        |
 | Delayed     |
