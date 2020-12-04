@@ -7,53 +7,55 @@
 |Customer|
 start
 |Customer|
-:createContract;
+#palegreen:call createContract;
 if (Need to edit?) then (yes)
-    :changeAgreementDetails;
+    #palegreen:call changeAgreementDetails;
+else (no)
 endif
 |Supplier|
 if (Approve agreement?) then (yes)
-  :approveAgreement;
+  #palegreen:call approveAgreement;
 else (no)
-  :rejectAgreement;
+  #palegreen:call rejectAgreement;
   stop
 endif
 |Supplier|
-:createPriceChange;
+#palegreen:call createPriceChange;
 |Customer|
 if (Approve price?) then (yes)
-  :approvePricet;
+  #palegreen:call approvePricet;
 else (no)
-  :rejectPrice;
+  #palegreen:call rejectPrice;
   stop
 endif
 |Customer|
-:addTask;
+#palegreen:call addTask;
 |Customer|
 if (Remove task?) then (yes)
-:removeTask;
+#palegreen:call removeTask;
+else (no)
 endif
 |Supplier|
 if (Approve task?) then (yes)
-  :approveTask;
+  #palegreen:call approveTask;
 else (no)
-  :rejectTask;
+  #palegreen:call rejectTask;
   stop
 endif
 |Worker|
-:acceptTask;
+#palegreen:call acceptTask;
 |Worker|
-:readyToPerformTask;
+#palegreen:call readyToPerformTask;
 |Captain|
-:requestGas;
+#palegreen:call requestGas;
 |Worker|
-:performTask;
+#palegreen:call performTask;
 |Worker|
-:taskCompleted;
+#palegreen:call taskCompleted;
 |Captain|
-:confirmTask;
+#palegreen:call confirmTask;
 |Bank|
-:paymentCompleted;
+#palegreen:call paymentCompleted;
 stop
 @enduml
 #+END_SRC
