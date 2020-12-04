@@ -1,0 +1,130 @@
+#+TITLE: Gas station contract
+
+** Example contract workflow
+
+#+BEGIN_SRC plantuml :file workflow.png :exports results
+@startuml
+|Customer|
+start
+|Customer|
+#palegreen:call createContract;
+if (Need to edit?) then (yes)
+    #palegreen:call changeAgreementDetails;
+else (no)
+endif
+|Supplier|
+if (Approve agreement?) then (yes)
+  #palegreen:call approveAgreement;
+else (no)
+  #palegreen:call rejectAgreement;
+  stop
+endif
+|Supplier|
+#palegreen:call createPriceChange;
+|Customer|
+if (Approve price?) then (yes)
+  #palegreen:call approvePricet;
+else (no)
+  #palegreen:call rejectPrice;
+  stop
+endif
+|Customer|
+#palegreen:call addTask;
+|Customer|
+if (Remove task?) then (yes)
+#palegreen:call removeTask;
+else (no)
+endif
+|Supplier|
+if (Approve task?) then (yes)
+  #palegreen:call approveTask;
+else (no)
+  #palegreen:call rejectTask;
+  stop
+endif
+|Worker|
+#palegreen:call acceptTask;
+|Worker|
+#palegreen:call readyToPerformTask;
+|Captain|
+#palegreen:call requestGas;
+|Worker|
+#palegreen:call performTask;
+|Worker|
+#palegreen:call taskCompleted;
+|Captain|
+#palegreen:call confirmTask;
+|Bank|
+#palegreen:call paymentCompleted;
+stop
+@enduml
+#+END_SRC
+
+#+RESULTS:
+[[file:workflow.png]]
+
+** Contract methods
+
+| ID | Name                     | Caller            | Params                                                                                                                                                                                                                                                                                                                                |
+|----+--------------------------+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  1 | createContract           | Customer          | SCInt customerAddr, SCString customerName, SCInt supplierAddr, SCString supplierName, SCString agreementDetails, SCInt bankAddr                                                                                                                                                                                                       |
+|  2 | getAgreement             | Customer/Supplier | -                                                                                                                                                                                                                                                                                                                                     |
+|  3 | rejectAgreement          | Supplier          | -                                                                                                                                                                                                                                                                                                                                     |
+|  4 | approveAgreement         | Supplier          | -                                                                                                                                                                                                                                                                                                                                     |
+|  5 | changeAgreementDetails   | Customer          | -                                                                                                                                                                                                                                                                                                                                     |
+|  6 | getPriceChangeWithNumber | Customer          | SCInt index                                                                                                                                                                                                                                                                                                                           |
+|  7 | getPriceChangesLength    | Customer          | -                                                                                                                                                                                                                                                                                                                                     |
+|  8 | rejectPrice              | Customer          | -                                                                                                                                                                                                                                                                                                                                     |
+|  9 | approvePrice             | Customer          | -                                                                                                                                                                                                                                                                                                                                     |
+| 10 | declinePrice             | Customer          | -                                                                                                                                                                                                                                                                                                                                     |
+| 11 | createPriceChange        | Supplier          | SCInt price, SCNegotiation negotiation, SCInt startTime                                                                                                                                                                                                                                                                               |
+| 12 | getTask                  | Supplier/Customer | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 13 | approveTask              | Supplier          | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 14 | rejectTask               | Supplier          | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 15 | acceptTask               | Worker            | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 16 | removeTask               | Customer          | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 17 | addTask                  | Customer          | SCInt taskId, SCNegotiation negotiation, SCInt captainAddr, SCString captainName, SCInt workerAddr, SCString workerName, SCInt expectedGas, SCInt requestedGas, SCInt suppliedGas, SCInt totalGas, SCInt requestTime, SCInt suppliedTime, SCInt completionTime, SCInt paymentTime, SCTaskStatus taskStatus, SCPaymentType paymentType |
+| 18 | readyToPerformTask       | Worker            | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 19 | requestGas               | Captain           | SCInt taskId, SCInt amount, SCInt paymentTime                                                                                                                                                                                                                                                                                         |
+| 20 | paymentCompleted         | Bank              | SCInt paymentId                                                                                                                                                                                                                                                                                                                       |
+| 21 | performTask              | Worker            | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+| 22 | taskCompleted            | Worker            | SCInt taskId, SCInt suppliedGas                                                                                                                                                                                                                                                                                                       |
+| 23 | confirmTask              | Captain           | SCInt taskId                                                                                                                                                                                                                                                                                                                          |
+
+** Types
+
+*** Negotiation
+
+| NotSet              |
+| WaitingCustomer     |
+| WaitingSupplier     |
+| NegotiationRejected |
+| NegotiationApproved |
+
+*** PaymentStatus
+
+| WaitingForPayment |
+| PaymentCompleted  |
+| PaymentRejected   |
+
+*** Phase
+
+| PhaseAgreement |
+| PhaseTasks     |
+| PhaseDeclined  |
+
+*** TaskStatus
+
+| TaskNotAccepted    |
+| TaskAccepted       |
+| TaskReadyToPerform |
+| GasRequested       |
+| Performing         |
+| Confirmed          |
+| TaskCompleted      |
+
+*** PaymentType
+
+| Pre         |
+| Post        |
+| Delayed     |
