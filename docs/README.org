@@ -1,10 +1,71 @@
 #+TITLE: Gas station contract
 
+** Contract workflow
+
+#+BEGIN_SRC plantuml :file workflow.png :exports results
+@startuml
+|Customer|
+start
+|Customer|
+:createContract;
+if (Need to edit?) then (yes)
+    :changeAgreementDetails;
+endif
+|Supplier|
+if (Approve agreement?) then (yes)
+  :approveAgreement;
+else (no)
+  :rejectAgreement;
+  stop
+endif
+|Supplier|
+:createPriceChange;
+|Customer|
+if (Approve price?) then (yes)
+  :approvePricet;
+else (no)
+  :rejectPrice;
+  stop
+endif
+|Customer|
+:addTask;
+|Customer|
+if (Remove task?) then (yes)
+:removeTask;
+endif
+|Supplier|
+if (Approve task?) then (yes)
+  :approveTask;
+else (no)
+  :rejectTask;
+  stop
+endif
+|Worker|
+:acceptTask;
+|Worker|
+:readyToPerformTask;
+|Captain|
+:requestGas;
+|Worker|
+:performTask;
+|Worker|
+:taskCompleted;
+|Captain|
+:confirmTask;
+|Bank|
+:paymentCompleted;
+stop
+@enduml
+#+END_SRC
+
+#+RESULTS:
+[[file:workflow.png]]
+
 ** Contract methods
 
 | ID | Name                     | Caller            | Params                                                                                                                                                                                                                                                                                                                                |
 |----+--------------------------+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  1 | init                     | Customer          | SCInt customerAddr, SCString customerName, SCInt supplierAddr, SCString supplierName, SCString agreementDetails, SCInt bankAddr                                                                                                                                                                                                       |
+|  1 | createContract           | Customer          | SCInt customerAddr, SCString customerName, SCInt supplierAddr, SCString supplierName, SCString agreementDetails, SCInt bankAddr                                                                                                                                                                                                       |
 |  2 | getAgreement             | Customer/Supplier | -                                                                                                                                                                                                                                                                                                                                     |
 |  3 | rejectAgreement          | Supplier          | -                                                                                                                                                                                                                                                                                                                                     |
 |  4 | approveAgreement         | Supplier          | -                                                                                                                                                                                                                                                                                                                                     |
