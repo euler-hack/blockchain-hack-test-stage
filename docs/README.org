@@ -1,6 +1,6 @@
 #+TITLE: Gas station contract
 
-** Contract workflow
+** Example contract workflow
 
 #+BEGIN_SRC plantuml :file workflow.png :exports results
 @startuml
