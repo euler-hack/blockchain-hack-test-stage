@@ -2,6 +2,8 @@
 
 ** Example contract workflow
 
+(Very simplistic and not accurate!)
+
 #+BEGIN_SRC plantuml :file workflow.png :exports results
 @startuml
 |Customer|
