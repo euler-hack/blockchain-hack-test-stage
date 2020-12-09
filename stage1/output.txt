@@ -1,0 +1,483 @@
+** init **
+Agrmt: 			Ngtn: 			Ngtn: WaitingSupplier
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+[]Negot: 			Ngtn: WaitingCustomer
+
+PrChn: []
+Phase: 			Phase: PhaseAgreement
+
+bankAddress: 1339
+paymentOrders: []
+
+** approveAgreement **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+[]Negot: 			Ngtn: WaitingCustomer
+
+PrChn: []
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** createPriceChange **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+[]Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: WaitingCustomer
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** approvePrice **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+[]Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** addTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NotSet
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:100
+	 ReqTm:200
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: TaskReadyToPerform
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** approveTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:100
+	 ReqTm:200
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: TaskReadyToPerform
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** acceptTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:100
+	 ReqTm:200
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: TaskAccepted
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** readyToPerformTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:100
+	 ReqTm:200
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: TaskReadyToPerform
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: []
+
+** requestGas **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:200
+	 ReqTm:1008
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: GasRequested
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: 			Amount: 10000
+			PmTime: 200
+			PmIndx: 0
+			PaymentStatus: WaitingForPayment
+
+
+** performTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:200
+	 ReqTm:1008
+	 SupTm:200
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: Performing
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: 			Amount: 10000
+			PmTime: 200
+			PmIndx: 0
+			PaymentStatus: WaitingForPayment
+
+
+** taskCompleted **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:200
+	 ReqTm:1008
+	 SupTm:1010
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: TaskCompleted
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: 			Amount: 10000
+			PmTime: 200
+			PmIndx: 0
+			PaymentStatus: WaitingForPayment
+
+
+** confirmTask **
+Agrmt: 			Ngtn: 			Ngtn: NegotiationApproved
+
+			Cstm: 			addr: 1337
+			Name: Aviacompany
+
+			Splr: 			addr: 1338
+			Name: Fuel company
+
+			Dtls: 			Name: This very cool agreement
+			addr: 1339
+
+
+Tasks:
+	 TskId:999
+	 Negotiation:NegotiationApproved
+	 Captn:
+			addr: 1340
+			Name: Ivanov
+
+	 Workr:
+			addr: 1341
+			Name: Petrov
+
+	 ExpGs:100
+	 ReqGs:100
+	 SupGs:100
+	 totalGas:200
+	 ReqTm:1008
+	 SupTm:1010
+	 CmpTm:200
+	 paymentTime:200
+			TaskStatus: Confirmed
+	 paymentType:Pre
+Negot: 			Ngtn: WaitingCustomer
+
+PrChn: 			Prce: 100
+			Ngtn: 			Ngtn: NegotiationApproved
+
+			StTm: 200
+
+Phase: 			Phase: PhaseTasks
+
+bankAddress: 1339
+paymentOrders: 			Amount: 10000
+			PmTime: 200
+			PmIndx: 0
+			PaymentStatus: WaitingForPayment
+			Amount: 10000
+			PmTime: 0
+			PmIndx: 0
+			PaymentStatus: WaitingForPayment
+ 
